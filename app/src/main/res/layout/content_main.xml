@@ -29,33 +29,37 @@
                     android:layout_height="match_parent">
 
                     <RadioButton
-                        android:id="@+id/radioButton6"
+                        android:id="@+id/radioButton_BIN"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:onClick="onConvesion"
                         android:text="BIN"
                         android:textSize="24sp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton7"
+                        android:id="@+id/radioButton_OCT"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="onConvesion"
                         android:text="OCT"
                         android:textSize="24sp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton8"
+                        android:id="@+id/radioButton_DEC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="onConvesion"
                         android:text="DEC"
                         android:textSize="24sp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton9"
+                        android:id="@+id/radioButton_HEX"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="onConvesion"
                         android:text="HEX"
                         android:textSize="24sp" />
                 </RadioGroup>
@@ -89,15 +93,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="0123456789"
+                    android:text="123456789"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/textView_HEX"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="0123456789ABCDEF"
+                    android:text="ABCDEF"
                     android:textSize="24sp" />
             </LinearLayout>
 
@@ -122,12 +126,13 @@
                     android:id="@+id/button_reset"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_span="2"
                     android:height="0dp"
                     android:background="@drawable/botones_especiales"
+                    android:onClick="limpiarConversion"
                     android:text="C"
                     android:textColor="@android:color/background_light"
-                    android:textSize="24sp"
-                    android:layout_span="2"/>
+                    android:textSize="24sp" />
             </TableRow>
 
             <TableRow
@@ -135,45 +140,45 @@
                 android:layout_height="match_parent" >
 
                 <Button
-                    android:id="@+id/button_0"
+                    android:id="@+id/button_00"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="0"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_1"
+                    android:id="@+id/button_01"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="1"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_2"
+                    android:id="@+id/button_02"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="2"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_3"
+                    android:id="@+id/button_03"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="3"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -184,45 +189,45 @@
                 android:layout_height="match_parent" >
 
                 <Button
-                    android:id="@+id/button_4"
+                    android:id="@+id/button_04"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="4"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_5"
+                    android:id="@+id/button_05"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="5"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_6"
+                    android:id="@+id/button_06"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="6"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_7"
+                    android:id="@+id/button_07"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="7"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -233,23 +238,23 @@
                 android:layout_height="match_parent" >
 
                 <Button
-                    android:id="@+id/button_8"
+                    android:id="@+id/button_08"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="8"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_9"
+                    android:id="@+id/button_09"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="9"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -260,7 +265,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="A"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -271,7 +276,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="B"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -287,7 +292,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="C"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -298,7 +303,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="D"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -309,7 +314,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="E"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -320,7 +325,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numeroConversion"
                     android:text="F"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />

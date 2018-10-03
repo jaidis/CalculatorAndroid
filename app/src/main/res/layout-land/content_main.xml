@@ -99,6 +99,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_especiales"
+                    android:onClick="memoriaAsignarValor"
                     android:text="M+"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -159,6 +160,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_especiales"
+                    android:onClick="memoriaResetear"
                     android:text="MR"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -218,6 +220,7 @@
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_especiales"
+                    android:onClick="memoriaValor"
                     android:text="M"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />

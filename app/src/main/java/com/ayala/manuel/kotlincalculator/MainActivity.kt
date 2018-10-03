@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import android.view.View
+import android.widget.RadioButton
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     var calculadoraMemoria:Long = 0
     var arrayNumeros = ArrayList<Long>()
     var arrayOperaciones = ArrayList<String>()
+
+    var baseConversion:String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -127,6 +130,136 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this@MainActivity, "Resultado", Toast.LENGTH_LONG).show()
         Log.d("numero-debug", "Resultado: " + this.calculadora)
 
+    }
+
+
+    /*
+    Código para la calculadora de conversión múltiple
+     */
+
+    fun numeroConversion (v:View){
+
+        val numeroConvertido = findViewById<Button>(v.id)
+
+        if (this.baseConversion == "BIN")
+        {
+            this.textView_BIN.text = this.textView_BIN.text.toString() + numeroConvertido.text.toString()
+            this.textView_DEC.text = java.lang.Long.parseLong(this.textView_BIN.text.toString(), 2).toString()
+            this.textView_OCT.text = Integer.toOctalString(this.textView_DEC.text.toString().toInt())
+            this.textView_HEX.text = Integer.toHexString(this.textView_DEC.text.toString().toInt()).toUpperCase()
+        }
+        else if (this.baseConversion.equals("OCT")){
+            this.textView_OCT.text = this.textView_OCT.text.toString() + numeroConvertido.text.toString()
+            this.textView_DEC.text = java.lang.Long.parseLong(this.textView_OCT.text.toString(), 8).toString()
+            this.textView_BIN.text = Integer.toBinaryString(this.textView_DEC.text.toString().toInt())
+            this.textView_HEX.text = Integer.toHexString(this.textView_DEC.text.toString().toInt()).toUpperCase()
+        }
+        else if (this.baseConversion.equals("DEC")){
+            this.textView_DEC.text = this.textView_DEC.text.toString() + numeroConvertido.text.toString()
+            this.textView_BIN.text = Integer.toBinaryString(this.textView_DEC.text.toString().toInt())
+            this.textView_OCT.text = Integer.toOctalString(this.textView_DEC.text.toString().toInt())
+            this.textView_HEX.text = Integer.toHexString(this.textView_DEC.text.toString().toInt()).toUpperCase()
+        }
+        else{
+            this.textView_HEX.text = this.textView_HEX.text.toString() + numeroConvertido.text.toString()
+            this.textView_DEC.text = java.lang.Long.parseLong(this.textView_HEX.text.toString(), 16).toString()
+            this.textView_BIN.text = Integer.toBinaryString(this.textView_DEC.text.toString().toInt())
+            this.textView_OCT.text = Integer.toOctalString(this.textView_DEC.text.toString().toInt())
+        }
+    }
+
+    fun onConvesion(v: View) {
+        if (v is RadioButton) {
+            // Is the button now checked?
+            val checked = v.isChecked
+
+            // Check which radio button was clicked
+            when (v.getId()) {
+                R.id.radioButton_BIN ->
+                    if (checked) {
+                        this.baseConversion = "BIN"
+                        Toast.makeText(this@MainActivity, "Binario", Toast.LENGTH_LONG).show()
+                        this.button_02.isEnabled = false
+                        this.button_03.isEnabled = false
+                        this.button_04.isEnabled = false
+                        this.button_05.isEnabled = false
+                        this.button_06.isEnabled = false
+                        this.button_07.isEnabled = false
+                        this.button_08.isEnabled = false
+                        this.button_09.isEnabled = false
+                        this.button_A.isEnabled = false
+                        this.button_B.isEnabled = false
+                        this.button_C.isEnabled = false
+                        this.button_D.isEnabled = false
+                        this.button_E.isEnabled = false
+                        this.button_F.isEnabled = false
+                    }
+                R.id.radioButton_OCT ->
+                    if (checked) {
+                        this.baseConversion = "OCT"
+                        Toast.makeText(this@MainActivity, "Octal", Toast.LENGTH_LONG).show()
+                        this.button_02.isEnabled = true
+                        this.button_03.isEnabled = true
+                        this.button_04.isEnabled = true
+                        this.button_05.isEnabled = true
+                        this.button_06.isEnabled = true
+                        this.button_07.isEnabled = true
+                        this.button_08.isEnabled = false
+                        this.button_09.isEnabled = false
+                        this.button_A.isEnabled = false
+                        this.button_B.isEnabled = false
+                        this.button_C.isEnabled = false
+                        this.button_D.isEnabled = false
+                        this.button_E.isEnabled = false
+                        this.button_F.isEnabled = false
+                    }
+                R.id.radioButton_DEC ->
+                    if (checked) {
+                        this.baseConversion = "DEC"
+                        Toast.makeText(this@MainActivity, "Decimal", Toast.LENGTH_LONG).show()
+                        this.button_02.isEnabled = true
+                        this.button_03.isEnabled = true
+                        this.button_04.isEnabled = true
+                        this.button_05.isEnabled = true
+                        this.button_06.isEnabled = true
+                        this.button_07.isEnabled = true
+                        this.button_08.isEnabled = true
+                        this.button_09.isEnabled = true
+                        this.button_A.isEnabled = false
+                        this.button_B.isEnabled = false
+                        this.button_C.isEnabled = false
+                        this.button_D.isEnabled = false
+                        this.button_E.isEnabled = false
+                        this.button_F.isEnabled = false
+                    }
+                R.id.radioButton_HEX ->
+                    if (checked) {
+                        this.baseConversion = "HEX"
+                        Toast.makeText(this@MainActivity, "Hexadecimal", Toast.LENGTH_LONG).show()
+                        this.button_02.isEnabled = true
+                        this.button_03.isEnabled = true
+                        this.button_04.isEnabled = true
+                        this.button_05.isEnabled = true
+                        this.button_06.isEnabled = true
+                        this.button_07.isEnabled = true
+                        this.button_08.isEnabled = true
+                        this.button_09.isEnabled = true
+                        this.button_A.isEnabled = true
+                        this.button_B.isEnabled = true
+                        this.button_C.isEnabled = true
+                        this.button_D.isEnabled = true
+                        this.button_E.isEnabled = true
+                        this.button_F.isEnabled = true
+                    }
+            }
+        }
+    }
+
+    fun limpiarConversion (v: View){
+        this.textView_BIN.text = ""
+        this.textView_DEC.text = ""
+        this.textView_OCT.text = ""
+        this.textView_HEX.text = ""
     }
 
 
