@@ -13,12 +13,16 @@ import android.widget.RadioButton
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import android.text.method.ScrollingMovementMethod
+import android.widget.TextView
+
+
 
 class MainActivity : AppCompatActivity() {
 
-    var calculadora:Long = 0
-    var calculadoraMemoria:Long = 0
-    var arrayNumeros = ArrayList<Long>()
+    var calculadora:Double = 0.0
+    var calculadoraMemoria:Double = 0.0
+    var arrayNumeros = ArrayList<Double>()
     var arrayOperaciones = ArrayList<String>()
 
     var baseConversion:String = ""
@@ -37,13 +41,10 @@ class MainActivity : AppCompatActivity() {
         //OnSaveInstanceState
         //onRestoreInstanceState
         //Para guardar variables al rotar la pantalla
-
-        //Guardar el tipo de Operacion
-        //Creamos un bool que diga si estamos haciendo una operacion
     }
 
     fun sumando (v: View){
-        this.arrayNumeros.add(textViewResultado.text.toString().toLong())
+        this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("+")
         this.textViewResultado.text = "0"
         Toast.makeText(this@MainActivity, "Sumando", Toast.LENGTH_LONG).show()
@@ -51,21 +52,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun restando (v: View){
-        this.arrayNumeros.add(textViewResultado.text.toString().toLong())
+        this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("-")
         this.textViewResultado.text = "0"
         Toast.makeText(this@MainActivity, "Restando", Toast.LENGTH_LONG).show()
     }
 
     fun multiplicando (v: View){
-        this.arrayNumeros.add(textViewResultado.text.toString().toLong())
+        this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("*")
         this.textViewResultado.text = "0"
         Toast.makeText(this@MainActivity, "Multiplicando", Toast.LENGTH_LONG).show()
     }
 
     fun dividiendo (v: View){
-        this.arrayNumeros.add(textViewResultado.text.toString().toLong())
+        this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("/")
         this.textViewResultado.text = "0"
         Toast.makeText(this@MainActivity, "Dividiendo", Toast.LENGTH_LONG).show()
@@ -87,10 +88,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun limpiar (v: View){
-        this.arrayNumeros = ArrayList<Long>()
+        this.arrayNumeros = ArrayList<Double>()
         this.arrayOperaciones = ArrayList<String>()
         this.textViewResultado.text = "0"
-        this.calculadora = 0
+        this.calculadora = 0.0
         Toast.makeText(this@MainActivity, "Calculadora reseteada", Toast.LENGTH_LONG).show()
 
     }
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun memoriaResetear (v: View){
-        this.calculadoraMemoria = 0
+        this.calculadoraMemoria = 0.0
         Toast.makeText(this@MainActivity, "Memoria reseteada", Toast.LENGTH_LONG).show()
     }
 
@@ -111,7 +112,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun resultado (v: View){
-        this.arrayNumeros.add(textViewResultado.text.toString().toLong())
+        this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.calculadora = this.arrayNumeros[0]
         for ((indice, item) in this.arrayOperaciones.withIndex()){
 //            Log.d("numero-debug", "Indice: " + indice)
