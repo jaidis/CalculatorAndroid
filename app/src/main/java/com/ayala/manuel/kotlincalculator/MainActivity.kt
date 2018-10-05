@@ -25,7 +25,10 @@ class MainActivity : AppCompatActivity() {
     var arrayNumeros = ArrayList<Double>()
     var arrayOperaciones = ArrayList<String>()
 
-    var baseConversion:String = ""
+    var calculadora_HEX:String = "0"
+    var calculadoraMemoria_HEX:String = "0"
+    var arrayNumeros_HEX = ArrayList<String>()
+    var arrayOperaciones_HEX = ArrayList<String>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("+")
         this.textViewResultado.text = "0"
-        Toast.makeText(this@MainActivity, "Sumando", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Sumando", Toast.LENGTH_SHORT).show()
         //Log.d("numero-debug", "Calculadora suma previa: " + calculadora)
     }
 
@@ -55,21 +58,21 @@ class MainActivity : AppCompatActivity() {
         this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("-")
         this.textViewResultado.text = "0"
-        Toast.makeText(this@MainActivity, "Restando", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Restando", Toast.LENGTH_SHORT).show()
     }
 
     fun multiplicando (v: View){
         this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("*")
         this.textViewResultado.text = "0"
-        Toast.makeText(this@MainActivity, "Multiplicando", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Multiplicando", Toast.LENGTH_SHORT).show()
     }
 
     fun dividiendo (v: View){
         this.arrayNumeros.add(textViewResultado.text.toString().toDouble())
         this.arrayOperaciones.add("/")
         this.textViewResultado.text = "0"
-        Toast.makeText(this@MainActivity, "Dividiendo", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Dividiendo", Toast.LENGTH_SHORT).show()
     }
 
     fun numero (v:View){
@@ -82,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                 this.textViewResultado.text = numero.text.toString()
         }
         else{
-            Toast.makeText(this@MainActivity, "El número es demasiado largo", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@MainActivity, "El número es demasiado largo", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -92,23 +95,23 @@ class MainActivity : AppCompatActivity() {
         this.arrayOperaciones = ArrayList<String>()
         this.textViewResultado.text = "0"
         this.calculadora = 0.0
-        Toast.makeText(this@MainActivity, "Calculadora reseteada", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Calculadora reseteada", Toast.LENGTH_SHORT).show()
 
     }
 
     fun memoriaValor (v: View){
         this.textViewResultado.text = calculadoraMemoria.toString()
-        Toast.makeText(this@MainActivity, "Valor actual de la memoria", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Valor actual de la memoria", Toast.LENGTH_SHORT).show()
     }
 
     fun memoriaResetear (v: View){
         this.calculadoraMemoria = 0.0
-        Toast.makeText(this@MainActivity, "Memoria reseteada", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Memoria reseteada", Toast.LENGTH_SHORT).show()
     }
 
     fun memoriaAsignarValor(v: View){
         this.calculadoraMemoria += this.textViewResultado.text.toString().toLong()
-        Toast.makeText(this@MainActivity, "Memoria almacenada", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Memoria almacenada", Toast.LENGTH_SHORT).show()
     }
 
     fun resultado (v: View){
@@ -128,141 +131,100 @@ class MainActivity : AppCompatActivity() {
         }
 
         this.textViewResultado.text = calculadora.toString()
-        Toast.makeText(this@MainActivity, "Resultado", Toast.LENGTH_LONG).show()
-        Log.d("numero-debug", "Resultado: " + this.calculadora)
+        Toast.makeText(this@MainActivity, "Resultado", Toast.LENGTH_SHORT).show()
+        // Log.d("numero-debug", "Resultado: " + this.calculadora)
 
     }
-
-
     /*
-    Código para la calculadora de conversión múltiple
+    Calculadora Hexadecimal
      */
 
-    fun numeroConversion (v:View){
+    fun sumando_HEX (v: View){
+        this.arrayNumeros_HEX.add(textViewResultado_HEX.text.toString())
+        this.arrayOperaciones_HEX.add("+")
+        this.textViewResultado_HEX.text = "0"
+        Toast.makeText(this@MainActivity, "Sumando", Toast.LENGTH_SHORT).show()
+    }
 
-        val numeroConvertido = findViewById<Button>(v.id)
+    fun restando_HEX (v: View){
+        this.arrayNumeros_HEX.add(textViewResultado_HEX.text.toString())
+        this.arrayOperaciones_HEX.add("-")
+        this.textViewResultado_HEX.text = "0"
+        Toast.makeText(this@MainActivity, "Restando", Toast.LENGTH_SHORT).show()
+    }
 
-        if (this.baseConversion == "BIN")
-        {
-            this.textView_BIN.text = this.textView_BIN.text.toString() + numeroConvertido.text.toString()
-            this.textView_DEC.text = java.lang.Long.parseLong(this.textView_BIN.text.toString(), 2).toString()
-            this.textView_OCT.text = Integer.toOctalString(this.textView_DEC.text.toString().toInt())
-            this.textView_HEX.text = Integer.toHexString(this.textView_DEC.text.toString().toInt()).toUpperCase()
-        }
-        else if (this.baseConversion.equals("OCT")){
-            this.textView_OCT.text = this.textView_OCT.text.toString() + numeroConvertido.text.toString()
-            this.textView_DEC.text = java.lang.Long.parseLong(this.textView_OCT.text.toString(), 8).toString()
-            this.textView_BIN.text = Integer.toBinaryString(this.textView_DEC.text.toString().toInt())
-            this.textView_HEX.text = Integer.toHexString(this.textView_DEC.text.toString().toInt()).toUpperCase()
-        }
-        else if (this.baseConversion.equals("DEC")){
-            this.textView_DEC.text = this.textView_DEC.text.toString() + numeroConvertido.text.toString()
-            this.textView_BIN.text = Integer.toBinaryString(this.textView_DEC.text.toString().toInt())
-            this.textView_OCT.text = Integer.toOctalString(this.textView_DEC.text.toString().toInt())
-            this.textView_HEX.text = Integer.toHexString(this.textView_DEC.text.toString().toInt()).toUpperCase()
+    fun multiplicando_HEX (v: View){
+        this.arrayNumeros_HEX.add(textViewResultado_HEX.text.toString())
+        this.arrayOperaciones_HEX.add("*")
+        this.textViewResultado_HEX.text = "0"
+        Toast.makeText(this@MainActivity, "Multiplicando", Toast.LENGTH_SHORT).show()
+    }
+
+    fun dividiendo_HEX (v: View){
+        this.arrayNumeros_HEX.add(textViewResultado_HEX.text.toString())
+        this.arrayOperaciones_HEX.add("/")
+        this.textViewResultado_HEX.text = "0"
+        Toast.makeText(this@MainActivity, "Dividiendo", Toast.LENGTH_SHORT).show()
+    }
+
+    fun numero_HEX (v:View){
+        val numero_HEX = findViewById<Button>(v.id)
+        //Log.d("numero-debug", "Numero pulsado: " + numero_HEX.text.toString())
+        if (this.textViewResultado_HEX.text.toString().length <= 8) {
+            if (!this.textViewResultado_HEX.text.toString().equals("0"))
+                this.textViewResultado_HEX.text = this.textViewResultado_HEX.text.toString() + numero_HEX.text.toString()
+            else
+                this.textViewResultado_HEX.text = numero_HEX.text.toString()
         }
         else{
-            this.textView_HEX.text = this.textView_HEX.text.toString() + numeroConvertido.text.toString()
-            this.textView_DEC.text = java.lang.Long.parseLong(this.textView_HEX.text.toString(), 16).toString()
-            this.textView_BIN.text = Integer.toBinaryString(this.textView_DEC.text.toString().toInt())
-            this.textView_OCT.text = Integer.toOctalString(this.textView_DEC.text.toString().toInt())
+            Toast.makeText(this@MainActivity, "El número es demasiado largo", Toast.LENGTH_SHORT).show()
         }
+
     }
 
-    fun onConvesion(v: View) {
-        if (v is RadioButton) {
-            // Is the button now checked?
-            val checked = v.isChecked
+    fun limpiar_HEX (v: View){
+        this.arrayNumeros_HEX = ArrayList<String>()
+        this.arrayOperaciones_HEX = ArrayList<String>()
+        this.textViewResultado_HEX.text = "0"
+        this.calculadora_HEX = "0"
+        Toast.makeText(this@MainActivity, "Calculadora reseteada", Toast.LENGTH_SHORT).show()
 
-            // Check which radio button was clicked
-            when (v.getId()) {
-                R.id.radioButton_BIN ->
-                    if (checked) {
-                        this.baseConversion = "BIN"
-                        Toast.makeText(this@MainActivity, "Binario", Toast.LENGTH_LONG).show()
-                        this.button_02.isEnabled = false
-                        this.button_03.isEnabled = false
-                        this.button_04.isEnabled = false
-                        this.button_05.isEnabled = false
-                        this.button_06.isEnabled = false
-                        this.button_07.isEnabled = false
-                        this.button_08.isEnabled = false
-                        this.button_09.isEnabled = false
-                        this.button_A.isEnabled = false
-                        this.button_B.isEnabled = false
-                        this.button_C.isEnabled = false
-                        this.button_D.isEnabled = false
-                        this.button_E.isEnabled = false
-                        this.button_F.isEnabled = false
-                    }
-                R.id.radioButton_OCT ->
-                    if (checked) {
-                        this.baseConversion = "OCT"
-                        Toast.makeText(this@MainActivity, "Octal", Toast.LENGTH_LONG).show()
-                        this.button_02.isEnabled = true
-                        this.button_03.isEnabled = true
-                        this.button_04.isEnabled = true
-                        this.button_05.isEnabled = true
-                        this.button_06.isEnabled = true
-                        this.button_07.isEnabled = true
-                        this.button_08.isEnabled = false
-                        this.button_09.isEnabled = false
-                        this.button_A.isEnabled = false
-                        this.button_B.isEnabled = false
-                        this.button_C.isEnabled = false
-                        this.button_D.isEnabled = false
-                        this.button_E.isEnabled = false
-                        this.button_F.isEnabled = false
-                    }
-                R.id.radioButton_DEC ->
-                    if (checked) {
-                        this.baseConversion = "DEC"
-                        Toast.makeText(this@MainActivity, "Decimal", Toast.LENGTH_LONG).show()
-                        this.button_02.isEnabled = true
-                        this.button_03.isEnabled = true
-                        this.button_04.isEnabled = true
-                        this.button_05.isEnabled = true
-                        this.button_06.isEnabled = true
-                        this.button_07.isEnabled = true
-                        this.button_08.isEnabled = true
-                        this.button_09.isEnabled = true
-                        this.button_A.isEnabled = false
-                        this.button_B.isEnabled = false
-                        this.button_C.isEnabled = false
-                        this.button_D.isEnabled = false
-                        this.button_E.isEnabled = false
-                        this.button_F.isEnabled = false
-                    }
-                R.id.radioButton_HEX ->
-                    if (checked) {
-                        this.baseConversion = "HEX"
-                        Toast.makeText(this@MainActivity, "Hexadecimal", Toast.LENGTH_LONG).show()
-                        this.button_02.isEnabled = true
-                        this.button_03.isEnabled = true
-                        this.button_04.isEnabled = true
-                        this.button_05.isEnabled = true
-                        this.button_06.isEnabled = true
-                        this.button_07.isEnabled = true
-                        this.button_08.isEnabled = true
-                        this.button_09.isEnabled = true
-                        this.button_A.isEnabled = true
-                        this.button_B.isEnabled = true
-                        this.button_C.isEnabled = true
-                        this.button_D.isEnabled = true
-                        this.button_E.isEnabled = true
-                        this.button_F.isEnabled = true
-                    }
-            }
+    }
+
+    fun memoriaValor_HEX (v: View){
+        this.textViewResultado_HEX.text = Integer.toHexString(this.calculadoraMemoria_HEX.toInt()).toUpperCase()
+        Toast.makeText(this@MainActivity, "Valor actual de la memoria", Toast.LENGTH_SHORT).show()
+    }
+
+    fun memoriaResetear_HEX (v: View){
+        this.calculadoraMemoria_HEX = "0"
+        Toast.makeText(this@MainActivity, "Memoria reseteada", Toast.LENGTH_SHORT).show()
+    }
+
+    fun memoriaAsignarValor_HEX(v: View){
+        this.calculadoraMemoria_HEX = (java.lang.Long.parseLong(this.calculadoraMemoria_HEX, 16) + java.lang.Long.parseLong(this.textViewResultado_HEX.text.toString(), 16)).toString()
+        Toast.makeText(this@MainActivity, "Memoria almacenada", Toast.LENGTH_SHORT).show()
+    }
+
+    fun resultado_HEX (v: View){
+        this.arrayNumeros_HEX.add(textViewResultado_HEX.text.toString())
+        this.calculadora_HEX = this.arrayNumeros_HEX[0]
+        for ((indice, item) in this.arrayOperaciones_HEX.withIndex()){
+            if (item == "+")
+                this.calculadora_HEX = (java.lang.Long.parseLong(this.calculadora_HEX, 16) + java.lang.Long.parseLong(this.arrayNumeros_HEX[indice + 1], 16)).toString()
+            if (item == "-")
+                this.calculadora_HEX = (java.lang.Long.parseLong(this.calculadora_HEX, 16) - java.lang.Long.parseLong(this.arrayNumeros_HEX[indice + 1], 16)).toString()
+            if (item == "*")
+                this.calculadora_HEX = (java.lang.Long.parseLong(this.calculadora_HEX, 16) * java.lang.Long.parseLong(this.arrayNumeros_HEX[indice + 1], 16)).toString()
+            if (item == "/")
+                this.calculadora_HEX = (java.lang.Long.parseLong(this.calculadora_HEX, 16) / java.lang.Long.parseLong(this.arrayNumeros_HEX[indice + 1], 16)).toString()
         }
-    }
 
-    fun limpiarConversion (v: View){
-        this.textView_BIN.text = ""
-        this.textView_DEC.text = ""
-        this.textView_OCT.text = ""
-        this.textView_HEX.text = ""
-    }
+        this.textViewResultado_HEX.text = Integer.toHexString(this.calculadora_HEX.toInt()).toUpperCase()
+        Toast.makeText(this@MainActivity, "Resultado", Toast.LENGTH_SHORT).show()
+        // Log.d("numero-debug", "Resultado: " + this.calculadora)
 
+    }
 
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {
