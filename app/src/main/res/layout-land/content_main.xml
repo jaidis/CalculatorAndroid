@@ -11,12 +11,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="-10dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewResultado"
+            android:id="@+id/textViewResultado_HEX"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
@@ -29,8 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
-            android:measureWithLargestChild="false"
-            android:shrinkColumns="0"
+            android:shrinkColumns="4"
             android:stretchColumns="0,1,2,3,4">
 
             <TableRow
@@ -39,56 +36,56 @@
                 android:layout_weight = "1">
 
                 <Button
+                    android:id="@+id/button_memory_reset2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_especiales"
+                    android:onClick="memoriaResetear_HEX"
+                    android:text="MC"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_memory_set2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_especiales"
+                    android:onClick="memoriaValor_HEX"
+                    android:text="MR"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_memory_add2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_especiales"
+                    android:onClick="memoriaAsignarValor_HEX"
+                    android:text="M+"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
                     android:id="@+id/button_reset"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_especiales"
-                    android:onClick="limpiar"
+                    android:onClick="limpiar_HEX"
                     android:text="C"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
-                    android:text="7"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
-                    android:text="8"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
-                    android:text="9"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button_dividir"
+                    android:id="@+id/button_dividir_HEX"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@color/colorPrimary"
-                    android:onClick="dividiendo"
+                    android:onClick="dividiendo_HEX"
                     android:text="/"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
@@ -100,195 +97,247 @@
                 android:layout_weight = "1">
 
                 <Button
-                    android:id="@+id/button_memory_add"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_especiales"
-                    android:onClick="memoriaAsignarValor"
-                    android:text="M+"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button_4"
+                    android:id="@+id/button_C"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numero_HEX"
+                    android:text="C"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_D"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="D"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_E"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="E"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_F"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="F"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_multiplicar_HEX"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@color/colorPrimary"
+                    android:onClick="multiplicando_HEX"
+                    android:text="*"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/button_08"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="8"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_09"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="9"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_A"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="A"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_B"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="B"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_restar_HEX"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@color/colorPrimary"
+                    android:onClick="restando_HEX"
+                    android:text="-"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/button_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
                     android:text="4"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_5"
+                    android:id="@+id/button_05"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numero_HEX"
                     android:text="5"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_6"
+                    android:id="@+id/button_06"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numero_HEX"
                     android:text="6"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_multiplicar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@color/colorPrimary"
-                    android:onClick="multiplicando"
-                    android:text="*"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height = "0dp"
-                android:layout_weight = "1">
-
-                <Button
-                    android:id="@+id/button_memory_reset"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_especiales"
-                    android:onClick="memoriaResetear"
-                    android:text="MR"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button_1"
+                    android:id="@+id/button_07"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numero_HEX"
+                    android:text="7"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_sumar_HEX"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@color/colorPrimary"
+                    android:onClick="sumando_HEX"
+                    android:text="+"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/button_00"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
+                    android:text="0"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:height="0dp"
+                    android:background="@drawable/botones_numeros"
+                    android:onClick="numero_HEX"
                     android:text="1"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_2"
+                    android:id="@+id/button_02"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numero_HEX"
                     android:text="2"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_3"
+                    android:id="@+id/button_03"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
+                    android:onClick="numero_HEX"
                     android:text="3"
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button_restar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@color/colorPrimary"
-                    android:onClick="restando"
-                    android:text="-"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height = "0dp"
-                android:layout_weight = "1">
-
-                <Button
-                    android:id="@+id/button_memory_set"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_especiales"
-                    android:onClick="memoriaValor"
-                    android:text="M"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button_0"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
-                    android:text="0"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-
-<!--                <Button
-                    android:id="@+id/button_result"
-                    android:layout_width="25dp"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:height="0dp"
-                    android:background="@color/colorPrimary"
-                    android:onClick="resultado"
-                    android:text="="
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />-->
-
-                <Button
-                    android:id="@+id/button_coma"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@drawable/botones_numeros"
-                    android:onClick="numero"
-                    android:text="."
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
-                <Button
-                    android:id="@+id/button_result"
+                    android:id="@+id/button_result_HEX"
                     android:layout_width="25dp"
                     android:layout_height="match_parent"
                     android:height="0dp"
                     android:background="@color/colorPrimary"
-                    android:onClick="resultado"
+                    android:onClick="resultado_HEX"
                     android:text="="
                     android:textColor="@android:color/background_light"
                     android:textSize="24sp" />
 
-
-                <Button
-                    android:id="@+id/button_sumar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:height="0dp"
-                    android:background="@color/colorPrimary"
-                    android:onClick="sumando"
-                    android:text="+"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp" />
             </TableRow>
         </TableLayout>
-
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

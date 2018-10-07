@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun memoriaAsignarValor(v: View){
-        this.calculadoraMemoria += this.textViewResultado.text.toString().toLong()
+        this.calculadoraMemoria += this.textViewResultado.text.toString().toDouble()
         Toast.makeText(this@MainActivity, "Memoria almacenada", Toast.LENGTH_SHORT).show()
     }
 
